@@ -4,8 +4,8 @@ import * as _dotenv from 'dotenv';
 import cors from 'cors';
 import http from 'http';
 import morgan from 'morgan';
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from './swagger'; // Adjust the import path as needed
 
 
 _dotenv.config();
@@ -37,25 +37,6 @@ app.use(session({
   },
 }));
 
-// Swagger definition
-const swaggerOptions = {
-  swaggerDefinition: {
-      openapi: '3.0.0',
-      info: {
-          title: 'SyncVote API',
-          version: '1.0.0',
-          description: 'API for the SyncVote discussion platform',
-      },
-      servers: [
-          {
-              url: 'http://localhost:8080', // Change to your server's URL
-          },
-      ],
-  },
-  apis: ['./src/routes/**/*.ts', './src/controllers/**/*.ts', './src/middlewares/**/*.ts', './src/constants/**/*.ts', './src/scripts/**/*.ts', './src/services/**/*.ts', './src/types/**/*.ts', './src/utils/**/*.ts',], // Include all routes and controllers
-};
-
-const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 

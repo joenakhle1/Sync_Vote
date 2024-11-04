@@ -16,6 +16,7 @@ const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
 
     const token = req.headers.authorization;
+    const SessionId = req.headers.session;
 
     if (!token) {
       return res.status(401).json({
@@ -37,7 +38,9 @@ const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
 
     req.userId = decode.id;
     req.userRole = decode.role;
-    ID = await getUserIdFromSession('21e25a9c-2e10-4128-9d13-95a587316f79');
+    if (SessionId != undefined && typeof SessionId === 'string') {
+      ID = await getUserIdFromSession(SessionId);
+    }
     next();
   } catch (e) {
     return res.status(401).json({

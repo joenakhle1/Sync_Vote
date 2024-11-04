@@ -1,0 +1,48 @@
+Sync_vote/
+|--------node_modules/
+|--------src/
+|        |-----constants/
+|        |        |-----categories.ts
+|        |-----controllers/
+|        |     |-----index.ts
+|        |     |-----PostsController.ts
+|        |     |-----UserController.ts
+|        |-----middlewares/
+|        |     |-----authJwt.ts
+|        |     |-----dataValidator.ts
+|        |-----routes/
+|        |     |-----index.ts
+|        |     |-----PostsRoute.ts
+|        |     |-----UsersRoute.ts
+|        |-----scripts/
+|        |     |-----create-admin.ts
+|        |-----types/
+|        |     |-----entities/
+|        |     |     |-----Comment.ts
+|        |     |     |-----index.d.ts
+|        |     |     |-----Post.ts
+|        |     |     |-----User.ts
+|        |     |-----express/
+|        |     |     |-----index.d.ts
+|        |     |-----api.ts
+|        |     |-----firestore.ts
+|        |-----utils/
+|        |     |-----firestore-helpers.ts
+|        |     |-----formatData.ts
+|        |     |-----getSessionId.ts
+|        |     |-----jwt.ts
+|        |     |-----password.ts
+|        |     |-----redis-client.ts
+|        |-----initializeRoutes.ts
+|        |-----server.ts
+|        |-----initializeRoutes.ts
+|--------.editorconfig
+|--------.env
+|--------.env.example
+|--------.gcloudignore
+|--------.gitignore
+|--------app.yaml
+|--------package-lock.json
+|--------package.json
+|--------README.md
+|--------tsconfig.json

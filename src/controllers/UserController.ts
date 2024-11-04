@@ -187,6 +187,8 @@ export class UserController {
   async updateLoggedUser(request: Request, response: Response): Promise<void> {
     const errors = validationResult(request);
 
+    const SessionId = request.headers.session;
+
     if (!errors.isEmpty()) {
       response.status(400).json({
         status: 400,
@@ -195,9 +197,9 @@ export class UserController {
       });
     } else {
       try {
-        if (await getUserIdFromSession('be1a291a-437c-4fa6-9b69-62eabc117dfd')) {
+        if (SessionId && typeof SessionId === 'string' && await getUserIdFromSession(SessionId)) {
           const updateData = request.body;
-          const usersResponse = await this.usersService.updateUser(await getUserIdFromSession('be1a291a-437c-4fa6-9b69-62eabc117dfd'), updateData);
+          const usersResponse = await this.usersService.updateUser(await getUserIdFromSession(SessionId), updateData);
 
           response.status(usersResponse.status).send({
             ...usersResponse,
@@ -229,6 +231,8 @@ export class UserController {
   async updateLoggedPass(request: Request, response: Response): Promise<void> {
     const errors = validationResult(request);
 
+    const SessionId = request.headers.session;
+
     if (!errors.isEmpty()) {
       response.status(400).json({
         status: 400,
@@ -237,9 +241,9 @@ export class UserController {
       });
     } else {
       try {
-        if (await getUserIdFromSession('21e25a9c-2e10-4128-9d13-95a587316f79')) {
+        if (SessionId && typeof SessionId === 'string' && await getUserIdFromSession(SessionId)) {
           const updateData = request.body;
-          const usersResponse = await this.usersService.updateUserPass(await getUserIdFromSession('21e25a9c-2e10-4128-9d13-95a587316f79'), updateData);
+          const usersResponse = await this.usersService.updateUserPass(await getUserIdFromSession(SessionId), updateData);
 
           response.status(usersResponse.status).send({
             ...usersResponse,
