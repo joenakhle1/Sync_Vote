@@ -35,7 +35,9 @@ export class PostsRoute {
      *               description:
      *                 type: string
      *               categories:
-     *                 type: string[]
+     *                 type: array
+     *                 items:
+     *                   type: string
      *     responses:
      *       201:
      *         description: Post created successfully
@@ -155,7 +157,9 @@ export class PostsRoute {
      *               description:
      *                 type: string
      *               categories:
-     *                 type: string[]
+     *                 type: array
+     *                 items:
+     *                   type: string
      *     responses:
      *       200:
      *         description: Post updated successfully

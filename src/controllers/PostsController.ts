@@ -284,8 +284,8 @@ export class PostsController {
 
   async getCommentsOfPost(request: Request, response: Response): Promise<void> {
     try {
-      if (request.params.id) {
-        const postCommentsResponse = await this.postsService.getCommentsOfPost(request.params.id);
+      if (request.params.postId) {
+        const postCommentsResponse = await this.postsService.getCommentsOfPost(request.params.postId);
 
         response.status(postCommentsResponse.status).send({
           ...postCommentsResponse,

@@ -254,7 +254,6 @@ export class PostsService {
     return {
       status: 200,
       message: 'Comment added successfully!',
-      data: categories
     };
   }
 
@@ -273,7 +272,7 @@ export class PostsService {
   }
 
   async getCommentsOfPost(PostId: string): Promise<IResBody> {
-
+    console.log('getCommentsOfPost', PostId);
     const postCommentsDoc = await this.db.comments.where('postId', '==', PostId).get();
 
     // Extract data from each document in the snapshot and put it in an array
