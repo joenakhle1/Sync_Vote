@@ -23,6 +23,19 @@ export class PostsRoute {
      *   post:
      *     summary: Create a new post
      *     tags: [Posts]
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               title:
+     *                 type: string
+     *               description:
+     *                 type: string
+     *               categories:
+     *                 type: string[]
      *     responses:
      *       201:
      *         description: Post created successfully
@@ -35,7 +48,7 @@ export class PostsRoute {
      * @swagger
      * /posts/{id}/Vote:
      *   put:
-     *     summary: Add a vote to a post
+     *     summary: Add a vote to a post (1 to upVote or -1 to downVote)
      *     tags: [Posts]
      *     parameters:
      *       - in: header
@@ -50,6 +63,15 @@ export class PostsRoute {
      *         description: ID of the post to vote on
      *         schema:
      *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               voteCount:
+     *                 type: number
      *     responses:
      *       200:
      *         description: Vote added successfully
@@ -121,6 +143,19 @@ export class PostsRoute {
      *         description: ID of the post to update
      *         schema:
      *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               title:
+     *                 type: string
+     *               description:
+     *                 type: string
+     *               categories:
+     *                 type: string[]
      *     responses:
      *       200:
      *         description: Post updated successfully
@@ -183,6 +218,15 @@ export class PostsRoute {
      *         description: ID of the post to comment on
      *         schema:
      *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               description:
+     *                 type: string
      *     responses:
      *       201:
      *         description: Comment added successfully
@@ -195,7 +239,7 @@ export class PostsRoute {
      * @swagger
      * /comments/{id}/Vote:
      *   put:
-     *     summary: Add a vote to a comment
+     *     summary: Add a vote to a comment (1 to upvote or -1 to downvote)
      *     tags: [Comments]
      *     parameters:
      *       - in: header
@@ -210,6 +254,15 @@ export class PostsRoute {
      *         description: ID of the comment to vote on
      *         schema:
      *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               voteCount:
+     *                 type: number
      *     responses:
      *       200:
      *         description: Vote added successfully
@@ -269,6 +322,15 @@ export class PostsRoute {
      *         description: ID of the comment to update
      *         schema:
      *           type: string
+     *     requestBody:
+     *       required: true
+     *       content:
+     *         application/json:
+     *           schema:
+     *             type: object
+     *             properties:
+     *               description:
+     *                 type: string
      *     responses:
      *       200:
      *         description: Comment updated successfully
