@@ -21,7 +21,7 @@ Run the development server:
 npm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
+Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.<br>
 Open [http://localhost:8080/api-docs](http://localhost:8080/api-docs) with your browser to see the full Documentation and test all provided API functions.
 
 > **Note:** when opening the api-docs to test all the functions kindly insert the Authorization token at the top of the page with clicking on the Authorize button and inserting the token (No need to insert "Bearer " the system will do it automatically) and feel free to ignore the second input field.
