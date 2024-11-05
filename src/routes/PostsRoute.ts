@@ -23,13 +23,6 @@ export class PostsRoute {
      *   post:
      *     summary: Create a new post
      *     tags: [Posts]
-     *     parameters:
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "token for authentication"
-     *         schema:
-     *           type: string
      *     responses:
      *       201:
      *         description: Post created successfully
@@ -46,13 +39,7 @@ export class PostsRoute {
      *     tags: [Posts]
      *     parameters:
      *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "Logged In token for authentication"
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: session
+     *         name: X_session
      *         required: true
      *         description: Session ID got when logged in
      *         schema:
@@ -128,12 +115,6 @@ export class PostsRoute {
      *     summary: Update a post
      *     tags: [Posts]
      *     parameters:
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "token of admin or owner for authentication"
-     *         schema:
-     *           type: string
      *       - in: path
      *         name: id
      *         required: true
@@ -167,12 +148,6 @@ export class PostsRoute {
      *     summary: Delete a post
      *     tags: [Posts]
      *     parameters:
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "token of admin or owner for authentication"
-     *         schema:
-     *           type: string
      *       - in: path
      *         name: id
      *         required: true
@@ -196,12 +171,6 @@ export class PostsRoute {
      *     summary: Add a comment to a post
      *     tags: [Comments]
      *     parameters:
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "Logged In token for authentication"
-     *         schema:
-     *           type: string
      *       - in: header
      *         name: session
      *         required: true
@@ -230,13 +199,7 @@ export class PostsRoute {
      *     tags: [Comments]
      *     parameters:
      *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "Logged In token for authentication"
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: session
+     *         name: X_session
      *         required: true
      *         description: Session ID got when logged in
      *         schema:
@@ -300,12 +263,6 @@ export class PostsRoute {
      *     summary: Update a comment
      *     tags: [Comments]
      *     parameters:
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "token of admin or owner for authentication"
-     *         schema:
-     *           type: string
      *       - in: path
      *         name: id
      *         required: true
@@ -327,12 +284,6 @@ export class PostsRoute {
      *     summary: Delete a comment
      *     tags: [Comments]
      *     parameters:
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "token of admin or owner for authentication"
-     *         schema:
-     *           type: string
      *       - in: path
      *         name: id
      *         required: true

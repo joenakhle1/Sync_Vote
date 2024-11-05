@@ -13,6 +13,27 @@ const swaggerOptions = {
         url: 'http://localhost:8080', // Base URL of the API
       },
     ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT', // Format for the token
+        },
+        CustomHeader: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'X_Custom-Header', // Name of the custom header
+          description: 'Custom header for client-specific data',
+        },
+      },
+    },
+    security: [
+      {
+        BearerAuth: [], // Apply BearerAuth globally
+        CustomHeader: [], // Apply CustomHeader globally
+      },
+    ],
   },
   apis: ['./src/routes/*.ts'], // Path to the API docs
 };

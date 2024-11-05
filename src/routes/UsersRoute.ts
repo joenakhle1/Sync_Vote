@@ -57,13 +57,6 @@ export class UsersRoute {
  *   get:
  *     summary: Retrieve all users
  *     tags: [Users]
- *     parameters:
- *       - in: header
- *         name: Authorization
- *         required: true
- *         description: Bearer "token for authentication"
- *         schema:
- *           type: string
  *     responses:
  *       200:
  *         description: The list of users
@@ -83,12 +76,6 @@ export class UsersRoute {
      *         in: path
      *         required: true
      *         description: The user ID
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "token for authentication"
      *         schema:
      *           type: string
      *     responses:
@@ -112,12 +99,6 @@ export class UsersRoute {
      *         in: path
      *         required: true
      *         description: The user ID
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "admin token for authentication"
      *         schema:
      *           type: string
      *     requestBody:
@@ -153,13 +134,7 @@ export class UsersRoute {
      *     tags: [Users]
      *     parameters:
      *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "Logged in token for authentication"
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: session
+     *         name: X_session
      *         required: true
      *         description: Session ID got when logged in
      *         schema:
@@ -174,8 +149,6 @@ export class UsersRoute {
      *               name:
      *                 type: string
      *               email:
-     *                 type: string
-     *               password:
      *                 type: string
      *     responses:
      *       200:
@@ -193,13 +166,7 @@ export class UsersRoute {
      *     tags: [Users]
      *     parameters:
      *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "Logged in token for authentication"
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: session
+     *         name: X_session
      *         required: true
      *         description: Session ID got when logged in
      *         schema:
@@ -257,12 +224,6 @@ export class UsersRoute {
      *         in: path
      *         required: true
      *         description: The user ID
-     *         schema:
-     *           type: string
-     *       - in: header
-     *         name: Authorization
-     *         required: true
-     *         description: Bearer "admin token for authentication"
      *         schema:
      *           type: string
      *     responses:

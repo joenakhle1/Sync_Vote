@@ -187,7 +187,7 @@ export class UserController {
   async updateLoggedUser(request: Request, response: Response): Promise<void> {
     const errors = validationResult(request);
 
-    const SessionId = request.headers.session;
+    const SessionId = request.headers['x_session'];
 
     if (!errors.isEmpty()) {
       response.status(400).json({
@@ -231,7 +231,7 @@ export class UserController {
   async updateLoggedPass(request: Request, response: Response): Promise<void> {
     const errors = validationResult(request);
 
-    const SessionId = request.headers.session;
+    const SessionId = request.headers['x_session'];
 
     if (!errors.isEmpty()) {
       response.status(400).json({

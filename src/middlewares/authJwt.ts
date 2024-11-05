@@ -9,19 +9,17 @@ interface DecodeToken extends JwtPayload {
   role: string;
 }
 
-
-
 let ID: any;
 const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
   try {
 
-    const token = req.headers.authorization;
-    const SessionId = req.headers.session;
+    const token = req.headers['authorization'];
+    const SessionId = req.headers['x_session'];
 
     if (!token) {
       return res.status(401).json({
         status: 401,
-        message: 'Unauthorized',
+        message: 'Unauthorized token',
       });
     }
 
@@ -30,7 +28,7 @@ const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
     if (tokenParts.length !== 2 || tokenParts[0] !== 'Bearer') {
       return res.status(401).json({
         status: 401,
-        message: 'Unauthorized',
+        message: 'Unauthorized token parts',
       });
     }
 
